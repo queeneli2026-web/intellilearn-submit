@@ -1,16 +1,13 @@
 # IntelliLearn Quiz Engine — Render Blueprint
-#
-# Paste this into Render Dashboard → New → Blueprint
-# After deploy, create MySQL DB manually (see RENDER_DEPLOY.md)
+# Deploy: Render Dashboard → New → Blueprint → select this repo
 
 services:
   - type: web
     name: intellilearn-quiz
-    env: php
+    env: docker
     region: oregon
     plan: free
-    buildCommand: echo "Build complete."
-    startCommand: php -S 0.0.0.0:$PORT -t public
+    dockerfilePath: ./Dockerfile
     healthCheckPath: /health.php
     envVars:
       - key: APP_ENV
