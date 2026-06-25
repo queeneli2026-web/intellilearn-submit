@@ -1,0 +1,162 @@
+/* ============================================================
+   IntelliLearn Admin — Custom Styles
+   Bootstrap 5.3 overrides for admin panel UI
+   ============================================================ */
+
+/* ─── Admin body padding for fixed navbar ─── */
+body {
+    padding-top: 56px;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* ─── Login page ─── */
+.login-page {
+    background-color: #e9ecef;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Sidebar ─── */
+.sidebar {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    background-color: #212529;
+    min-height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar .nav-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left-color: #0d6efd;
+}
+
+/* ─── Main content ─── */
+main {
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+/* ─── Tables ─── */
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.04);
+}
+
+/* ─── Form input focus styling ─── */
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* ─── Card styling ─── */
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* ─── Skeleton loading animation ─── */
+.skeleton-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    align-items: center;
+}
+
+.skeleton-cell {
+    height: 1rem;
+    background: linear-gradient(90deg, #e9ecef 25%, #f8f9fa 50%, #e9ecef 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+    border-radius: 0.25rem;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ─── Toast notification styling ─── */
+.toast-container {
+    position: fixed;
+    top: 70px;
+    right: 1rem;
+    z-index: 1050;
+}
+
+.toast {
+    min-width: 250px;
+}
+
+/* ─── Empty state styling ─── */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6c757d;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ─── Responsive sidebar (mobile) ─── */
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        min-height: auto;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        display: none;
+    }
+
+    .sidebar.collapse:not(.show) {
+        display: none;
+    }
+
+    .sidebar.collapse.show {
+        display: block;
+    }
+
+    main {
+        margin-left: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 16.66666667%;
+    }
+
+    main {
+        margin-left: 16.66666667%;
+    }
+}

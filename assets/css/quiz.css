@@ -1,0 +1,381 @@
+/* ============================================================
+   IntelliLearn Quiz — Student Quiz Styles
+   Bootstrap 5.3 overrides and custom styles for quiz UI
+   ============================================================ */
+
+/* ─── Body padding for fixed navbar ─── */
+body {
+    padding-top: 56px;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+/* ─── Quiz Card (Browse Page) ─── */
+.quiz-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    border-top: 3px solid #0d6efd;
+}
+
+.quiz-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+.quiz-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.quiz-card .badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Resume Banner ─── */
+.resume-banner {
+    border-left: 4px solid #0d6efd;
+    border-radius: 0.5rem;
+}
+
+/* ─── Timer Bar ─── */
+.timer-bar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    z-index: 1020;
+    height: 6px;
+    transition: background-color 0.5s ease, width 1s linear;
+}
+
+.timer-green {
+    background-color: #28a745;
+}
+
+.timer-yellow {
+    background-color: #ffc107;
+}
+
+.timer-red {
+    background-color: #dc3545;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ─── Timer Display Text ─── */
+#timer-display {
+    font-variant-numeric: tabular-nums;
+    font-size: 1.1rem;
+}
+
+/* ─── Question Area ─── */
+.take-question {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.take-question h4 {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #212529;
+}
+
+/* ─── Option Items (MCQ list groups) ─── */
+.option-item {
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    min-height: 48px; /* touch-friendly */
+}
+
+.option-item:hover {
+    background-color: #f0f4ff;
+    border-color: #86b7fe;
+}
+
+.option-item input[type="radio"]:checked ~ span,
+.option-item input[type="checkbox"]:checked ~ span {
+    font-weight: 600;
+}
+
+.option-item:has(input:checked) {
+    background-color: #e7f1ff;
+    border-color: #0d6efd;
+}
+
+/* ─── True/False Option Buttons ─── */
+.option-btn {
+    min-height: 80px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    touch-action: manipulation;
+}
+
+.option-btn:hover {
+    transform: scale(1.02);
+}
+
+.option-btn.selected.option-btn-true {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.option-btn.selected.option-btn-false {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+/* ─── Form Controls ─── */
+.take-question .form-control-lg {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    min-height: 52px; /* touch-friendly */
+}
+
+.take-question textarea.form-control {
+    font-size: 1rem;
+    min-height: 120px;
+}
+
+.take-question .form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* ─── Feedback Card ─── */
+.feedback-card {
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border-left: 4px solid;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feedback-correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.feedback-incorrect {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.feedback-pending {
+    background-color: #fff3cd;
+    border-color: #ffc107;
+    color: #856404;
+}
+
+.feedback-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 0.1rem;
+}
+
+.feedback-body {
+    flex-grow: 1;
+}
+
+.feedback-body strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+}
+
+.feedback-body p {
+    margin-bottom: 0.25rem;
+}
+
+.feedback-body small {
+    color: inherit;
+    opacity: 0.8;
+}
+
+/* ─── Saved Toast ─── */
+.saved-toast {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+/* ─── Pending Review Badge ─── */
+.badge-pending {
+    background-color: #ffc107;
+    color: #856404;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+}
+
+/* ─── Navigation Buttons ─── */
+.take-question .btn {
+    min-height: 44px; /* touch-friendly */
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+}
+
+/* ─── Progress Bar ─── */
+.progress {
+    background-color: #e9ecef;
+    border-radius: 0.5rem;
+}
+
+.progress-bar {
+    border-radius: 0.5rem;
+    transition: width 0.3s ease;
+}
+
+/* ─── Empty State ─── */
+.empty-state svg {
+    opacity: 0.5;
+}
+
+/* ─── Toast Container ─── */
+.toast-container {
+    z-index: 1060;
+}
+
+/* ─── Results Page ─── */
+.results-score-card {
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.08);
+}
+
+.results-score-card .display-1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #212529;
+}
+
+.results-pass-badge {
+    font-size: 1.25rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+}
+
+.results-pass-badge.badge-success {
+    background-color: #28a745;
+}
+
+.results-pass-badge.badge-danger {
+    background-color: #dc3545;
+}
+
+.results-detail-label {
+    color: #6c757d;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.results-detail-value {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.results-accordion .accordion-button:not(.collapsed) {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.results-accordion .accordion-button:focus {
+    box-shadow: none;
+    border-color: #dee2e6;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 52px;
+    }
+
+    .take-question h4 {
+        font-size: 1.1rem;
+    }
+
+    .option-item {
+        font-size: 0.95rem;
+        padding: 0.65rem 0.85rem;
+    }
+
+    .option-btn {
+        font-size: 1.1rem;
+        min-height: 70px;
+    }
+
+    #timer-display {
+        font-size: 1rem;
+    }
+
+    .quiz-card .card-title {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .take-question {
+        padding-top: 0.5rem;
+    }
+}
+
+/* ─── Loading / Disabled State ─── */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-loading::after {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spinner 0.6s linear infinite;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}

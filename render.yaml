@@ -1,0 +1,58 @@
+# IntelliLearn Quiz Engine — Render Blueprint
+# Deploy: paste this into Render Dashboard → Blueprint
+# Or CLI: render blueprint apply (requires Render CLI)
+
+services:
+  # ─── PHP Web Service ───
+  - type: web
+    name: intellilearn-quiz
+    env: php
+    region: oregon
+    plan: free
+    buildCommand: |
+      # No build step needed — pure PHP with no Composer
+      # Ensure schema.sql exists for manual import (see PostDeploy)
+      echo "Build complete."
+    startCommand: php -S 0.0.0.0:$PORT -t public
+    healthCheckPath: /health.php
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DB_HOST
+        fromDatabase:
+          name: intellilearn-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: intellilearn-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: intellilearn-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: intellilearn-db
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: intellilearn-db
+          property: password
+      - key: PHP_INI_SESSION_COOKIE_SAMESITE
+        value: Lax
+    disk:
+      name: php-tmp
+      mountPath: /tmp/php-uploads
+      sizeGB: 1
+
+databases:
+  # ─── Managed MySQL Database ───
+  - name: intellilearn-db
+    type: mysql
+    region: oregon
+    plan: free
+    databaseName: buta
+    user: buta_app
+    version: "8.0"
+    # Schema is applied manually or via post-deploy hook
+    # (see Post-Deploy section below)

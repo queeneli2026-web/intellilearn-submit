@@ -1,0 +1,39 @@
+.performance-dashboard .chart-container {
+    min-height: 250px;
+    position: relative;
+}
+
+.performance-dashboard .mastery-card .mastery-progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+.performance-dashboard .mastery-card .progress {
+    border-radius: 4px;
+}
+
+.performance-dashboard .table th {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.performance-dashboard .table td {
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .performance-dashboard .chart-container {
+        min-height: 200px;
+    }
+}
+
+@media print {
+    .performance-dashboard .chart-container {
+        display: none;
+    }
+    .performance-dashboard .card {
+        break-inside: avoid;
+    }
+}
